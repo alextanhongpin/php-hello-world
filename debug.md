@@ -17,3 +17,21 @@ define( 'WP_DEBUG', true );
 define( 'WP_DEBUG_DISPLAY', false );
 define( 'WP_DEBUG_LOG', true );
 ```
+
+## Debugging with gdb
+
+```bash
+$ sudo -s 
+$ yum install gdb
+$ ps -ef | grep httpd
+$ gdb attach 2714
+Missing separate debuginfos, use: debuginfo-install httpd24-2.4.41-1.88.amzn1.x86_64
+
+# Follows the child process if it forks.
+$ set follow-fork-mode child
+
+# Continue.
+$ c
+$ backtrace
+$ backtrace full
+```
